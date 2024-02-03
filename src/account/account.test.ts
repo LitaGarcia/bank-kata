@@ -1,23 +1,6 @@
-import {Account, Clock, Statement} from "./account.ts";
+import {Account, Clock, Statement, StatementRepository} from "./account.ts";
 
 describe('account', () => {
-    it('should deposit an amount in the balance of the account', () => {
-        //given
-        const mockClock: Clock = {
-            now: jest.fn(() => 12345)
-        };
-        const accountNumber: number = 12317
-        const balance: number = 1000;
-        const amount: number = 100;
-        const account: Account = new Account(accountNumber, balance, mockClock);
-
-        //when
-        account.deposit(amount)
-        const currentBalance: number = account._getBalance()
-
-        //then
-        expect(currentBalance).toEqual(1100)
-    })
     it('should get the balance of the account', () => {
         //given
         const mockClock: Clock = {
@@ -68,5 +51,31 @@ describe('account', () => {
             date: 12345,
             balance: currentBalance
         })
+    })
+    it('should add an statement with the amount deposited in the repositoryStatement list', () => {
+        //given
+        const statement: Statement = {
+            date: 12345,
+            balance: 1100,
+            amount: 100
+        };
+        const mockClock: Clock = {
+            now: jest.fn(() => 12345)
+        };
+        const mockAccountStatementRepository: StatementRepository = {
+            findAll: jest.fn(() => []),
+            save: jest.fn()
+        }
+        const spyAccountStatementRepostitory = jest.spyOn(mockAccountStatementRepository, 'save')
+        const accountNumber: number = 12317;
+        const balance: number = 1000;
+        const amount: number = 100;
+        const account: Account = new Account(accountNumber, balance, mockClock, mockAccountStatementRepository);
+
+        //when
+        account.deposit(amount);
+
+        //then
+        expect(spyAccountStatementRepostitory).toHaveBeenCalledWith(statement)
     })
 })
