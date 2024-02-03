@@ -1,11 +1,16 @@
 export class Account {
-    balance: number;
+    private _balance: number;
     accountNumber: number;
 constructor(accountNumber: number, balance: number) {
-    this.balance = balance;
+    this._balance = balance;
     this.accountNumber = accountNumber;
 }
+
+_getBalance(): number {
+    return this._balance
+}
+
 deposit(amount: number): void {
-    this.balance = amount + this.balance;
+    this._balance = amount + this._balance;
 }
 }
