@@ -1,39 +1,36 @@
 import {Account, Clock, Statement, StatementRepository} from "./account.ts";
 
 describe('account', () => {
-    it('should get the balance of the account', () => {
+    it('should printStatement list from the account', () => {
         //given
+        const statementList: Statement[] = [{
+            date: 12345,
+            balance: 1100,
+            amount: 100
+        },
+            {
+                date: 12345,
+                balance: 900,
+                amount: -100
+            }
+        ];
         const mockClock: Clock = {
             now: jest.fn(() => 12345)
         };
-        const accountNumber: number = 12317
-        const balance: number = 1000;
-        const account: Account = new Account(accountNumber, balance, mockClock);
-
-        //when
-        const currentBalance: number = account._getBalance()
-
-        //then
-        expect(currentBalance).toEqual(1000)
-    })
-    it('should printStatement from the account', () => {
-        //given
-        const mockClock: Clock = {
-            now: jest.fn(() => 12345)
-        };
+        const mockAccountStatementRepository: StatementRepository = {
+            findAll: jest.fn(() => statementList),
+            save: jest.fn()
+        }
+        const spyAccountStatementRepository = jest.spyOn(mockAccountStatementRepository, 'findAll');
         const accountNumber: number = 12317;
         const balance: number = 1000;
-        const account: Account = new Account(accountNumber, balance, mockClock);
-        const currentBalance: number = account._getBalance();
+        const account: Account = new Account(accountNumber, balance, mockClock, mockAccountStatementRepository);
 
         //when
-        const printStatement: Statement = account.printStatement();
+        const printStatement: Statement[] = account.printStatement();
 
         //then
-        expect(printStatement).toEqual({
-            date: 12345,
-            balance: currentBalance
-        })
+        expect(printStatement).toEqual(statementList)
     })
     it('should add an statement with the amount deposited in the repositoryStatement list', () => {
         //given
