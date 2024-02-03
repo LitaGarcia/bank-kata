@@ -27,5 +27,18 @@ describe('account', () => {
         //then
         expect(getBalance).toEqual(1000)
     })
+    it('should withdraw an amount of the current balance', () => {
+        //given
+        const accountNumber: number = 12317
+        const balance: number = 1000;
+        const amount: number = 100;
+
+        //when
+        const account: Account = new Account(accountNumber, balance);
+        const getBalance: number = account.withdraw(amount)
+
+        //then
+        expect(getBalance).toEqual(900)
+    })
     }
 )
