@@ -2,17 +2,13 @@ export class Account {
     private _balance: number;
     accountNumber: number;
     private _clock: Clock;
-    private _accountStatementRepository: StatementRepository;
+    private _InMemoryAccountStatementRepository: StatementRepository;
 
     constructor(accountNumber: number, balance: number, clock: Clock, accountStatementRepository: StatementRepository) {
         this._balance = balance;
         this.accountNumber = accountNumber;
         this._clock = clock;
-        this._accountStatementRepository = accountStatementRepository;
-    }
-
-    getBalance(): number {
-        return this._balance
+        this._InMemoryAccountStatementRepository = accountStatementRepository;
     }
 
     deposit(amount: number): void {
@@ -21,7 +17,7 @@ export class Account {
             balance: amount + this._balance,
             amount
         }
-        this._accountStatementRepository.save(statement)
+        this._InMemoryAccountStatementRepository.save(statement)
     }
 
     withdraw(amount: number): void {
@@ -30,15 +26,11 @@ export class Account {
             balance: this._balance - amount,
             amount: -amount
         }
-        this._accountStatementRepository.save(statement)
+        this._InMemoryAccountStatementRepository.save(statement)
     }
 
-    printStatement(): Statement {
-        return {
-            date: this._clock.now(),
-            balance: this.getBalance(),
-            amount: 100
-        }
+    printStatement(): Statement[] {
+        return this._InMemoryAccountStatementRepository.findAll()
     }
 }
 
