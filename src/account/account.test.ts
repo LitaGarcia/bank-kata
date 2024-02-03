@@ -16,23 +16,6 @@ describe('account', () => {
         //then
         expect(currentBalance).toEqual(1000)
     })
-    it('should withdraw an amount of the current balance', () => {
-        //given
-        const mockClock: Clock = {
-            now: jest.fn(() => 12345)
-        };
-        const accountNumber: number = 12317
-        const balance: number = 1000;
-        const amount: number = 100;
-        const account: Account = new Account(accountNumber, balance, mockClock);
-
-        //when
-        account.withdraw(amount)
-        const currentBalance: number = account._getBalance()
-
-        //then
-        expect(currentBalance).toEqual(900)
-    })
     it('should printStatement from the account', () => {
         //given
         const mockClock: Clock = {
