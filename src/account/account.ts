@@ -25,7 +25,12 @@ export class Account {
     }
 
     withdraw(amount: number): void {
-        this._balance = this._balance - amount;
+        const statement: Statement = {
+            date: this._clock.now(),
+            balance: this._balance - amount,
+            amount: -amount
+        }
+        this._accountStatementRepository.save(statement)
     }
 
     printStatement(): Statement {
