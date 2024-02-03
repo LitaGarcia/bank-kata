@@ -16,7 +16,7 @@ describe('account', () => {
         expect(currentBalance).toEqual(1100)
     })
     it('should get the balance of the account', () => {
-    //given
+        //given
         const accountNumber: number = 12317
         const balance: number = 1000;
         const account: Account = new Account(accountNumber, balance);
@@ -59,5 +59,5 @@ describe('account', () => {
             date: 12345,
             balance: currentBalance
         })
-    }
-)
+    })
+})
