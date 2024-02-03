@@ -66,7 +66,7 @@ describe('account', () => {
             findAll: jest.fn(() => []),
             save: jest.fn()
         }
-        const spyAccountStatementRepostitory = jest.spyOn(mockAccountStatementRepository, 'save')
+        const spyAccountStatementRepository = jest.spyOn(mockAccountStatementRepository, 'save')
         const accountNumber: number = 12317;
         const balance: number = 1000;
         const amount: number = 100;
@@ -76,6 +76,6 @@ describe('account', () => {
         account.deposit(amount);
 
         //then
-        expect(spyAccountStatementRepostitory).toHaveBeenCalledWith(statement)
+        expect(spyAccountStatementRepository).toHaveBeenCalledWith(statement)
     })
 })
