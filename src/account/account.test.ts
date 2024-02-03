@@ -6,40 +6,40 @@ describe('account', () => {
         const accountNumber: number = 12317
         const balance: number = 1000;
         const amount: number = 100;
+        const account: Account = new Account(accountNumber, balance);
 
         //when
-        const account: Account = new Account(accountNumber, balance);
-        const deposit: void = account.deposit(amount)
-        const getBalance: number = account._getBalance()
+        account.deposit(amount)
+        const currentBalance: number = account._getBalance()
 
-    //then
-    expect(getBalance).toEqual(1100)
+        //then
+        expect(currentBalance).toEqual(1100)
     })
     it('should get the balance of the account', () => {
     //given
         const accountNumber: number = 12317
         const balance: number = 1000;
+        const account: Account = new Account(accountNumber, balance);
 
         //when
-        const account: Account = new Account(accountNumber, balance);
-        const getBalance: number = account._getBalance()
+        const currentBalance: number = account._getBalance()
 
         //then
-        expect(getBalance).toEqual(1000)
+        expect(currentBalance).toEqual(1000)
     })
     it('should withdraw an amount of the current balance', () => {
         //given
         const accountNumber: number = 12317
         const balance: number = 1000;
         const amount: number = 100;
+        const account: Account = new Account(accountNumber, balance);
 
         //when
-        const account: Account = new Account(accountNumber, balance);
-        const withdraw: void = account.withdraw(amount)
-        const getBalance: number = account._getBalance()
+        account.withdraw(amount)
+        const currentBalance: number = account._getBalance()
 
         //then
-        expect(getBalance).toEqual(900)
+        expect(currentBalance).toEqual(900)
     })
     }
 )
