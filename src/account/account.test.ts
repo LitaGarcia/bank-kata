@@ -1,3 +1,5 @@
+import {Account} from "./account.ts";
+
 describe('account', () => {
     it('should deposit an amount in a balance of the account', () => {
     //given
@@ -6,7 +8,7 @@ describe('account', () => {
     const amount: number = 100;
 
     //when
-    const account = new Account(accountNumber, balance);
+    const account: Account = new Account(accountNumber, balance);
     account.deposit(100)
 
     //then
