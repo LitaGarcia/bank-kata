@@ -35,7 +35,8 @@ describe('account', () => {
 
         //when
         const account: Account = new Account(accountNumber, balance);
-        const getBalance: number = account.withdraw(amount)
+        const withdraw: void = account.withdraw(amount)
+        const getBalance: number = account._getBalance()
 
         //then
         expect(getBalance).toEqual(900)
