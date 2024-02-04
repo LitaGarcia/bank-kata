@@ -1,5 +1,5 @@
-import {Statement} from "../account/account.ts";
-import {StatementRepository} from "../interfaces/interfaces.ts";
+import {Statement} from "../account/account";
+import {StatementRepository} from "../interfaces/interfaces";
 
 export class InMemoryAccountStatementRepository implements StatementRepository {
     private statementList: Statement[] = [];

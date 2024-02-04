@@ -1,7 +1,7 @@
 import {describe, expect} from "@jest/globals";
-import {InMemoryAccountStatementRepository} from "./inMemoryAccountStatementRepository.ts";
-import {StatementRepository} from "../interfaces/interfaces.ts";
-import {Statement} from "../account/account.ts";
+import {InMemoryAccountStatementRepository} from "./inMemoryAccountStatementRepository";
+import {StatementRepository} from "../interfaces/interfaces";
+import {Statement} from "../account/account";
 
 describe('inMemoryAccountStatementRepository', () => {
     const inMemoryAccountStatementRepository: StatementRepository = new InMemoryAccountStatementRepository();

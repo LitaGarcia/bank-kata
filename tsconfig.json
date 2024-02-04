@@ -5,8 +5,7 @@
     "target": "es2022",
     "moduleResolution": "node",
     "sourceMap": true,
-    "outDir": "dist",
-    "allowImportingTsExtensions": true
+    "outDir": "dist"
   },
   "lib": ["es2022"]
 }

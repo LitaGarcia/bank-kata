@@ -1,6 +1,6 @@
-import {Account, Statement} from "./account.ts";
+import {Account, Statement} from "./account";
 import {beforeEach} from "@jest/globals";
-import {Clock, StatementRepository} from "../interfaces/interfaces.ts";
+import {Clock, StatementRepository} from "../interfaces/interfaces";
 
 describe('account', () => {
     let mockClock: Clock;

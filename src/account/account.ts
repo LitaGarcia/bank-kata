@@ -1,4 +1,4 @@
-import {Clock, StatementRepository} from "../interfaces/interfaces.ts";
+import {Clock, StatementRepository} from "../interfaces/interfaces";
 
 export class Account {
     private readonly _balance: number;
