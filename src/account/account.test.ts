@@ -1,13 +1,14 @@
-import {Account, Clock, Statement, StatementRepository} from "./account.ts";
+import {Account, Statement} from "./account.ts";
 import {beforeEach} from "@jest/globals";
 import mock = jest.mock;
+import {Clock, StatementRepository} from "../interfaces/interfaces.ts";
 
 describe('account', () => {
     let mockClock: Clock;
     let mockAccountStatementRepository: StatementRepository;
+    let account: Account;
     const accountNumber: number = 12317;
     const balance: number = 1000;
-    let account: Account;
     const mockFindAll = jest.fn((): Statement[] => []);
     const mockSave = jest.fn();
     const mockNow = jest.fn((): number => 12345)

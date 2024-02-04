@@ -1,3 +1,5 @@
+import {Clock, StatementRepository} from "../interfaces/interfaces.ts";
+
 export class Account {
     private _balance: number;
     accountNumber: number;
@@ -38,25 +40,4 @@ export type Statement = {
     date: number,
     balance: number,
     amount: number
-}
-
-export interface Clock {
-    now: () => number
-}
-
-export interface StatementRepository {
-    save: (statement) => void,
-    findAll: () => Statement[]
-}
-
-export class InMemoryAccountStatementRepository implements StatementRepository {
-    private statementList: Statement[];
-
-    findAll(): Statement[] {
-        return this.statementList
-    }
-    save(statement): void {
-        const statementList: Statement[] = this.findAll();
-        statementList.push(statement)
-    }
 }
