@@ -1,14 +1,14 @@
 import {Clock, StatementRepository} from "../interfaces/interfaces.ts";
 
 export class Account {
-    private _balance: number;
-    accountNumber: number;
+    private readonly _balance: number;
+    private _accountNumber: number;
     private _clock: Clock;
     private _InMemoryAccountStatementRepository: StatementRepository;
 
     constructor(accountNumber: number, balance: number, clock: Clock, accountStatementRepository: StatementRepository) {
         this._balance = balance;
-        this.accountNumber = accountNumber;
+        this._accountNumber = accountNumber;
         this._clock = clock;
         this._InMemoryAccountStatementRepository = accountStatementRepository;
     }
