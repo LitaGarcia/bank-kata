@@ -4,15 +4,19 @@ import {StatementRepository} from "../interfaces/interfaces.ts";
 import {Statement} from "../account/account.ts";
 
 describe('inMemoryAccountStatementRepository', () => {
+    const inMemoryAccountStatementRepository: StatementRepository = new InMemoryAccountStatementRepository();
+
     it('should return an empty array if does not exist an statement', () => {
     //given
-    const inMemoryAccountStatementRepository: StatementRepository = new InMemoryAccountStatementRepository()
+
     //when
-    const findAll: Statement[] = inMemoryAccountStatementRepository.findAll()
+    const findAll: Statement[] = inMemoryAccountStatementRepository.findAll();
+
     //then
     const result: [] = [];
     expect(findAll).toEqual(result)
     })
+
     it('should save an statement correctly and actualize the statementList', () => {
     //given
     const statement: Statement = {
@@ -20,7 +24,6 @@ describe('inMemoryAccountStatementRepository', () => {
         balance: 1100,
         amount: 100
     };
-    const inMemoryAccountStatementRepository: StatementRepository = new InMemoryAccountStatementRepository();
 
     //when
     inMemoryAccountStatementRepository.save(statement);
