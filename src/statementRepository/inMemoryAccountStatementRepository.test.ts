@@ -8,7 +8,7 @@ describe('inMemoryAccountStatementRepository', () => {
     //given
     const inMemoryAccountStatementRepository: StatementRepository = new InMemoryAccountStatementRepository()
     //when
-    const findAll: Statement[] | string = inMemoryAccountStatementRepository.findAll()
+    const findAll: Statement[] = inMemoryAccountStatementRepository.findAll()
     //then
     const result: [] = [];
     expect(findAll).toEqual(result)

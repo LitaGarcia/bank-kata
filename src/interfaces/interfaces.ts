@@ -5,6 +5,6 @@ export interface Clock {
 }
 
 export interface StatementRepository {
-    save: (statement) => void,
+    save: (statement: Statement) => void,
     findAll: () => Statement[]
 }
