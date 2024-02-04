@@ -1,6 +1,5 @@
 import {Account, Statement} from "./account.ts";
 import {beforeEach} from "@jest/globals";
-import mock = jest.mock;
 import {Clock, StatementRepository} from "../interfaces/interfaces.ts";
 
 describe('account', () => {
