@@ -41,7 +41,8 @@ While performing the commits, I was making sure of the cycle I was following and
 
 2. Expand Functionality: 
 
-As I mentioned above I have tried to reflect the green-red-refactor cycle through the commits, but I realize I make mistake since I have not made a little mistake with the small pieces *Clock* and *InMemoryAccountStatementsRepository* since I created before creating their own tests in order to cover the needs of the corresponding Account tests.
+This kata has been limited to the rules provided in the TDD manifesto mentioned above.
+
 ### Documentation
 
 I have attached the most useful links to documentation I used for the kata.
