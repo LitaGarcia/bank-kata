@@ -26,7 +26,7 @@ And also don't forget to install all dependencies found in the package.json file
 ### Overview
 
 - *InMemoryAccountStatemetsRepository* has been implemented base on an interface that would allow to create different storage implementations.
-- I used Jest as first time and allows me an easy way to create an app with node as a bundler.
+- I used Jest as first time and allows me an easy way to create an app with babel.
 - *Clock* is injected as an interface that allows to mock the `now()`method in order to prevent error with the time executed in test.
 - I have tried to reflect the RED-GREEN-REFACTOR cycle in the commits.
 - *Account* methods were limited to three as indicated in the TDD Manifesto kata.
